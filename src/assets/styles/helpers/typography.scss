@@ -1,0 +1,176 @@
+@use 'variables' as *;
+
+$font-primary: 'Red Hat Display', sans-serif;
+$font-secondary: 'Open Sans', sans-serif;
+
+@mixin title-xl($color: $neutral0) {
+  font-family: $font-primary;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 36px;
+  color: $color;
+}
+
+@mixin title-1($color: $neutral0) {
+  font-family: $font-primary;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  color: $color;
+}
+
+@mixin title-bold($color: $neutral0) {
+  font-family: $font-primary;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  color: $color;
+}
+
+@mixin title-md($color: $neutral0) {
+  font-family: $font-primary;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 20px;
+  color: $color;
+}
+
+@mixin title-small-bold($color: $neutral0) {
+  font-family: $font-primary;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  color: $color;
+}
+
+@mixin title-small($color: $neutral0) {
+  font-family: $font-primary;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  color: $color;
+}
+
+@mixin input-large($color: $neutral0) {
+  font-family: $font-primary;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 40px;
+  color: $color;
+}
+
+@mixin input-m($color: $neutral0) {
+  font-family: $font-primary;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 24px;
+  color: $color;
+}
+
+@mixin subtitle-large($color: $neutral0) {
+  font-family: $font-primary;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: $color;
+}
+
+@mixin subtitle-medium($color: $neutral0) {
+  font-family: $font-primary;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: $color;
+}
+
+@mixin subtitle-reg($color: $neutral0) {
+  font-family: $font-primary;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: $color;
+}
+
+@mixin subtitle-small($color: $neutral0) {
+  font-family: $font-primary;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  color: $color;
+}
+
+@mixin subtext($color: $neutral0) {
+  font-family: $font-primary;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: $color;
+}
+
+@mixin body-1-medium($color: $neutral0) {
+  font-family: $font-secondary;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: $color;
+}
+
+@mixin body-2-small($color: $neutral0) {
+  font-family: $font-secondary;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: $color;
+}
+
+@mixin paragraph-text-small($color: $neutral0) {
+  font-family: $font-primary;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: $color;
+}
+
+@mixin alternative-text-small($color: $neutral0) {
+  font-family: $font-secondary;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: $color;
+}
+
+@mixin caption($color: $neutral0) {
+  font-family: $font-secondary;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+  color: $color;
+}
+
+@mixin info-element($color: $neutral0) {
+  font-family: $font-primary;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: $color;
+}

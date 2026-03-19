@@ -1,0 +1,79 @@
+/* stylelint-disable selector-max-id */
+@use 'vendors/normalize';
+@use 'vendors/fonts';
+@use 'helpers/all' as *;
+
+html,
+body,
+#__next {
+  background: $surface-elevation-dark;
+  width: 800px;
+  height: auto;
+  margin: 0 auto;
+}
+
+* {
+  font-family: 'Red Hat Display', sans-serif;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  padding: 0;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+p {
+  margin: 0;
+}
+
+body {
+  @include body-2-small();
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+div#root {
+  height: 100%;
+  background: $surface-elevation-1;
+  padding-bottom: 20px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  appearance: textfield;
+}
+
+h1 {
+  @include title-xl();
+}
+
+h2 {
+  @include title-1();
+}
+
+h3 {
+  @include title-md();
+}
+
+h4 {
+  @include title-small-bold();
+}
+
+h5 {
+  @include title-small();
+}
