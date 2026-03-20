@@ -1,0 +1,70 @@
+@use 'assets/styles/helpers/all' as *;
+
+$checkIcon: url('assets/images/icons/check.svg');
+
+.wrapper {
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  min-height: 20px;
+  outline: 0;
+  position: relative;
+  width: auto;
+  gap: 12px;
+
+  &:global(.focus-visible) {
+    border: 2px solid $neutral300;
+  }
+
+  &.disabled {
+    .checkbox:checked + .icon {
+      border-color: $neutral600;
+
+      &::before {
+        background-color:  $neutral600;
+      }
+    }
+  }
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+
+  &:checked + .icon {
+    border: 2px solid $primary-default;
+
+    &::before {
+      -webkit-mask: $checkIcon no-repeat center;
+      background-color: $primary-default;
+      mask: $checkIcon no-repeat center;
+    }
+  }
+}
+
+.icon {
+  border: 2px solid $neutral300;
+  border-radius: 6px;
+  display: block;
+  height: 20px;
+  min-width: 20px;
+  position: relative;
+  width: 16px;
+  margin: 4px;
+
+  &::before {
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 0;
+    content: '';
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+.labelArea {
+  @include body-2-small($neutral100);
+}

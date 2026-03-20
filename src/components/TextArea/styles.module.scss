@@ -1,0 +1,192 @@
+@use 'assets/styles/helpers/all' as *;
+
+$input-border-radius: 8px;
+$input-shadow: inset 0 2px 2px -1px rgba(74, 74, 104, 0.1);
+$left-content-width: 50px;
+$right-content-padding: 44px;
+
+.containerWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: relative;
+}
+
+.textLabel {
+  @include subtitle-small($neutral700);
+}
+
+.symbol {
+  @include subtitle-small($neutral700);
+  padding-left: 2px;
+}
+
+.containerWrapper {
+  position: relative;
+}
+
+.label {
+  // @include caption;
+  color: var(--n4);
+  margin-bottom: 4px;
+}
+
+.asterisk {
+  color: var(--n4);
+}
+
+.inputWrapper {
+  align-items: center;
+  background: $surface-elevation-2;
+  border: 1px solid $surface-elevation-2;
+  border-radius: $input-border-radius;
+  box-shadow: $input-shadow;
+  outline: 0;
+  overflow: hidden;
+  position: relative;
+  transition: color 0.3s, box-shadow 0.3s, border 0.3s;
+
+  &.readonly {
+    box-shadow: none;
+    pointer-events: none;
+
+    .textArea {
+      box-shadow: none !important;
+      cursor: default;
+    }
+  }
+
+  &.noBackground {
+    background: transparent;
+    box-shadow: unset;
+
+    .textArea {
+      background: transparent;
+      box-shadow: none !important;
+    }
+  }
+
+  &.transparent {
+    background: transparent;
+    border: unset !important;
+    box-shadow: unset;
+
+    .textArea {
+      background: transparent;
+      box-shadow: none !important;
+    }
+  }
+
+  &.error {
+    border-color: $error-default;
+
+    .leftContent {
+      background-color: rgba($error-default, 0.25);
+
+      svg path {
+        fill: $error-default;
+      }
+    }
+  }
+
+  &:focus-within:not(.error):not(.successful) {
+    border: 1px solid $primary-glow;
+  }
+
+  &:hover:not([data-disabled]):not(:focus-within):not(.error):not(.successful) {
+    border: 1px solid $neutral700;
+
+    .textArea {
+      box-shadow: none !important;
+    }
+  }
+
+  &[data-disabled] {
+    &.leftIcon .leftContent {
+      background-color: $neutral200;
+    }
+
+    .textArea {
+      background-color: $neutral200;
+      border-color: $neutral300;
+      box-shadow: none !important;
+
+      &::placeholder {
+        color: $neutral500;
+      }
+    }
+  }
+
+  &.leftIcon {
+    .textArea {
+      padding-left: 62px;
+    }
+  }
+
+  &.rightIcon .textArea {
+    padding-right: $right-content-padding;
+  }
+}
+
+.textArea {
+  @include body-1-medium($neutral0);
+  background-color: transparent;
+  border: 0;
+  box-shadow: $input-shadow !important;
+  outline: 0;
+  width: 100%;
+  min-height: 96px;
+  padding: 16px;
+  resize: none;
+
+  &::placeholder {
+    color: $text-muted !important;
+  }
+
+  &:disabled {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  //&:not(.defaultPlaceholder)::placeholder {
+  //  color: $neutral600;
+  //}
+  //
+  //&.defaultPlaceholder::placeholder {
+  //  color: $neutral700;
+  //}
+}
+
+.leftContent {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  width: $left-content-width;
+}
+
+.rightContent {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  padding: 0 16px 0 12px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.textError {
+  @include caption($error-default);
+  align-items: center;
+  display: flex;
+  margin-top: 0;
+
+  &.errorPositionAbsolute {
+    position: absolute;
+    top: calc(100% + 2px);
+    left: 0;
+  }
+}

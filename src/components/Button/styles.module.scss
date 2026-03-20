@@ -1,22 +1,56 @@
 @use 'assets/styles/helpers/all' as *;
 
-button {
+$button-border-radius: 300px;
+$button-transition: all 0.3s;
+$loader-size: 20px;
+$content-gap: 4px;
+
+@mixin icon-styles($fill: true) {
+  svg {
+    path {
+      @if $fill {
+        fill: currentColor !important;
+      }
+      stroke: currentColor !important;
+    }
+  }
+}
+
+.button {
   @include body-1-medium();
-  border-radius: 50px;
+  border-radius: $button-border-radius;
   cursor: pointer;
   outline: none;
   position: relative;
+  transition: $button-transition;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+  gap: $content-gap;
   overflow: hidden;
+
+  // default size values moved to modifiers below
+  :not(.loader) > svg path,
+  :not(.loader) svg path {
+    transition: $button-transition;
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: none;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: calc(#{$button-border-radius} + 4px);
+      pointer-events: none;
+    }
+  }
 
   &.filledPrimary {
     background: linear-gradient(270deg, $primary-default 0%, $primary-alt 100%);
     color: $surface-light;
-    width: fit-content;
-    padding: 10px 20px;
 
     &:hover:not(:disabled) {
       opacity: 0.9;
@@ -27,7 +61,72 @@ button {
       color: $text-muted;
     }
 
-    //@include icon-styles($fill: false);
+    @include icon-styles($fill: false);
+  }
+
+  &.filledHighlighted {
+    background-color: $surface-light;
+    color: $primary-alt;
+
+    &:hover:not(:disabled) {
+      opacity: 0.9;
+    }
+
+    &:disabled {
+      background: $neutral700;
+      color: $text-muted;
+    }
+
+    @include icon-styles;
+  }
+
+  &.text {
+    background-color: transparent;
+    color: $primary-default;
+
+    &:hover:not(:disabled) {
+      background-color: $neutral800;
+    }
+
+    &:disabled {
+      color: $text-muted;
+    }
+
+    @include icon-styles($fill: false);
+  }
+
+  &.outline {
+    border: 1px solid $primary-default;
+    background-color: transparent;
+    color: $primary-default;
+
+    &:hover:not(:disabled) {
+      border-color: $primary-alt;
+      color: $primary-alt;
+    }
+
+    &:disabled {
+      border-color: $text-muted;
+      color:  $text-muted;
+    }
+
+    @include icon-styles;
+  }
+
+  &.neutral {
+    background-color: $surface-light;
+    color: $neutral0;
+
+    &:hover:not(:disabled) {
+      opacity: 0.9;
+    }
+
+    &:disabled {
+      border-color: $neutral700;
+      color:  $text-muted;
+    }
+
+    @include icon-styles;
   }
 
   &.round {
@@ -40,7 +139,63 @@ button {
 
     &:disabled {
       background-color: rgba($surface-elevation-1, 0.2);
-      color: $text-muted;
+      color:  $text-muted;
     }
+
+    @include icon-styles;
+  }
+
+
+  &.loading {
+    pointer-events: none;
+  }
+
+  &[disabled] {
+    pointer-events: none;
+
+    @include icon-styles;
+  }
+
+  &.fullWidth {
+    width: 100%;
+  }
+
+  &.large {
+    height: 48px;
+    min-height: 48px;
+    padding: 12px 14px;
+  }
+
+  &.medium {
+    height: 40px;
+    min-height: 40px;
+    padding: 8px 14px;
+  }
+
+  &.small {
+    height: 32px;
+    min-height: 32px;
+    padding: 4px 14px;
+  }
+}
+
+.addContent {
+  align-items: center;
+  display: inline-flex;
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba($neutral200, 0.1);
+  transform: scale(0);
+  animation: ripple 1.2s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
   }
 }

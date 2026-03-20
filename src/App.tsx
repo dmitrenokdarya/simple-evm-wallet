@@ -1,15 +1,18 @@
-import Header from './components/Header';
-import Tabs from './containers/Tabs';
-import WalletBalance from './containers/WalletBalance';
-import './assets/styles/global.scss'
+import { Routes, Route } from 'react-router-dom';
+import './assets/styles/global.scss';
+import HomePage from './containers/HomePage';
+import { ROUTES } from './constants/routes.constants';
+import CreateWallet from './containers/CreateWallet';
 
 function App() {
   return (
-    <div>
-      <Header />
-      <WalletBalance />
-      <Tabs />
-    </div>
+    <Routes>
+      <Route>
+        <Route path={ROUTES.HOME_PAGE} element={<HomePage />} />
+        <Route path={ROUTES.CREATE_WALLET} element={<CreateWallet />} />
+        {/* <Route path={ROUTES.IMPORT_WALLET} element={<ImportWallet />} /> */}
+      </Route>
+    </Routes>
   );
 }
 

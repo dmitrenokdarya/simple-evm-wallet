@@ -1,0 +1,198 @@
+@use 'assets/styles/helpers/all' as *;
+
+$input-height: 48px;
+$input-border-radius: 8px;
+$focus-shadow-size: 0 0 0 4px;
+$left-content-width: 50px;
+$right-content-padding: 44px;
+
+.containerWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: relative;
+}
+
+.textLabel {
+  @include subtitle-medium($text-primary);
+}
+
+.symbol {
+  @include subtitle-small($neutral700);
+  padding-left: 2px;
+}
+
+.inputWrapper {
+  align-items: center;
+  border: 1px solid $surface-elevation-2;
+  border-radius: $input-border-radius;
+  height: $input-height;
+  max-height: $input-height;
+  outline: 0;
+  overflow: hidden;
+  position: relative;
+  transition: color 0.3s, box-shadow 0.3s, border 0.3s;
+
+  &.readonly {
+    box-shadow: none;
+
+    .input {
+      box-shadow: none !important;
+    }
+  }
+
+  &.clickable {
+    cursor: pointer;
+
+    .input {
+      cursor: pointer;
+    }
+  }
+
+  &.noBackground {
+    background: transparent;
+    box-shadow: unset;
+
+    .input {
+      background: transparent;
+      box-shadow: none !important;
+    }
+  }
+
+  &.transparent {
+    background: transparent;
+    border: unset !important;
+    box-shadow: unset;
+
+    .input {
+      background: transparent;
+      box-shadow: none !important;
+    }
+  }
+
+  &.error {
+    border-color: $error-default;
+
+    .leftContent {
+      background-color: rgba($error-default, 0.25);
+
+      svg path {
+        fill: $error-default;
+      }
+    }
+  }
+
+  &:focus-within:not(.error):not(.successful) {
+    border: 1px solid $primary-glow;
+  }
+
+  &:hover:not([data-disabled]):not(:focus-within):not(.error):not(.successful) {
+    border: 1px solid $neutral700;
+
+    .input {
+      box-shadow: none !important;
+    }
+  }
+
+  &[data-disabled] {
+    &.leftIcon .leftContent {
+      background-color: $neutral200;
+    }
+
+    .input {
+      background-color: $neutral200;
+      border-color: $neutral300;
+      box-shadow: none !important;
+
+      &::placeholder {
+        color: $neutral500;
+      }
+    }
+  }
+
+  &.leftIcon {
+    .input {
+      padding-left: 62px;
+    }
+
+    .textLabel {
+      left: 62px;
+    }
+  }
+
+  &.rightIcon .input {
+    padding-right: $right-content-padding;
+  }
+}
+
+.input {
+  @include body-1-medium($text-primary);
+  border: 0;
+  background-color: $surface-elevation-2;
+  height: $input-height;
+  min-width: 100px;
+  outline: 0;
+  padding: 16px;
+  width: 100%;
+
+  &::placeholder {
+    color: $text-muted;
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    background-color: $surface-elevation-2;
+    -webkit-text-fill-color: $text-primary !important;
+    transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s;
+  }
+}
+
+.labelWrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.leftContent {
+  align-items: center;
+  display: flex;
+  height: $input-height;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  width: $left-content-width;
+}
+
+.rightContent {
+  align-items: center;
+  display: flex;
+  height: $input-height;
+  padding: 0 16px 0 12px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.textError {
+  @include subtext($error-default);
+  align-items: center;
+  display: flex;
+
+  &.errorPositionAbsolute {
+    position: absolute;
+    top: calc(100% + 2px);
+    left: 0;
+  }
+}
+
+.description {
+  @include subtext($text-primary);
+  margin-top: 2px;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+}

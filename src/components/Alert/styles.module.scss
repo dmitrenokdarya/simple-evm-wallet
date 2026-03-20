@@ -1,0 +1,42 @@
+@use 'assets/styles/helpers/all' as *;
+
+.alert {
+  @include subtitle-small($text-primary);
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    min-width: 24px;
+  }
+}
+
+.content {
+  display: inline-flex;
+  margin-top: 2px;
+}
+
+.tone_success {
+  background-color: rgba($success-default, 0.1);
+}
+
+.tone_error, .tone_alert {
+  background-color: rgba($error-default, 0.1);
+}
+
+.floating {
+  position: absolute;
+  width: calc(100% - 32px);
+  bottom: 60px;
+  left: 16px;
+  right: 16px;
+  justify-content: center;
+}
