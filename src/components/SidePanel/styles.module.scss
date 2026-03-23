@@ -1,0 +1,100 @@
+@use 'assets/styles/helpers/all' as *;
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease;
+  z-index: 999;
+}
+
+.backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  transform: translateX(-100%);
+  transition: transform 240ms ease;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  background: $surface-elevation-1;
+  overflow-y: auto;
+
+  &.open {
+    transform: translateX(0);
+  }
+}
+
+.header {
+  padding: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .mainLinks {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .action {
+    background: $surface-elevation-2;
+    align-items: center;
+    padding: 16px;
+    border-radius: 12px;
+    display: flex;
+    gap: 12px;
+    width: 100%;
+
+    .actionTexts {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+
+      .title {
+        @include subtitle-medium($text-primary);
+      }
+
+      p {
+        @include subtext($neutral100);
+      }
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  background-color: $surface-elevation-2;
+  border-radius: 12px;
+  padding: 12px 16px;
+  gap: 10px;
+
+  .action {
+    @include body-1-medium($text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    width: 100%;
+    height: 40px;
+
+    .actionIcon {
+      margin-left: auto;
+    }
+  }
+}

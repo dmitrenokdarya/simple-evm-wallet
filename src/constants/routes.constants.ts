@@ -5,4 +5,6 @@ export const ROUTES = {
   RECEIVE: '/receive',
   SEND: '/send',
   SHOW_SEED: '/wallet/:id/seed',
+  MY_WALLETS: '/my-wallets',
+  TOKEN_DETAILS: '/token-details/:chain/:contractAddress',
 };

@@ -20,14 +20,36 @@
     padding: 4px 12px;
     margin-bottom: 4px;
   }
+
   .balance {
     @include input-large($text-muted);
     display: flex;
     align-items: center;
     gap: 8px;
     height: 40px;
-    font-size: 50px;
-    margin-bottom: 6px;
+
+    .total {
+      color: $text-primary-dark;
+    }
+
+    .toggleButton {
+      display: flex;
+      align-items: center;
+
+      svg {
+        path {
+          stroke: $neutral600;
+        }
+      }
+
+      &.revealed {
+        svg {
+          path {
+            stroke: $primary-default-1;
+          }
+        }
+      }
+    }
   }
   .info {
     @include info-element($surface-elevation-dark);

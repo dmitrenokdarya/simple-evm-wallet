@@ -1,0 +1,132 @@
+@use 'assets/styles/helpers/all' as *;
+
+.currencyItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 30px;
+  cursor: pointer;
+  border-top: 1px solid $neutral500;
+
+  .left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .icons {
+      position: relative;
+
+      .tokenIcon {
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+
+        img {
+          object-fit: contain;
+        }
+      }
+
+      .chainIcon {
+        width: 20px;
+        height: 20px;
+        border: 1.5px solid $surface-elevation-1;
+        border-radius: 50%;
+        position: absolute;
+        bottom: 0;
+        right: -6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+
+    .meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+
+      .name {
+        @include title-small($text-primary);
+      }
+
+      .sub {
+        @include subtext($text-secondary);
+
+        .priceChange {
+          @include caption($text-secondary);
+          margin-left: 4px;
+
+          &.priceUp {
+            color: $success-default;
+          }
+
+          &.priceDown {
+            color: $error-default;
+          }
+        }
+      }
+    }
+  }
+
+  .right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    min-width: 120px;
+    overflow: hidden;
+
+    .balanceInfo {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+      text-align: right;
+      transition: transform 0.2s ease;
+    }
+
+    .amount {
+      @include title-small-bold($text-primary);
+    }
+
+    .price {
+      @include subtext($text-secondary);
+    }
+
+    .hideBtn {
+      @include caption($text-secondary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      cursor: pointer;
+      overflow: hidden;
+      width: 0;
+      min-width: 0;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(8px);
+      transition: width 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+      white-space: nowrap;
+    }
+  }
+
+  &:hover .right.withHide {
+    .hideBtn {
+      width: 36px;
+      opacity: 1;
+      pointer-events: all;
+      transform: translateX(0);
+    }
+  }
+}
