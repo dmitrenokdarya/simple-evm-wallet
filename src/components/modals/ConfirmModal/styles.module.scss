@@ -1,0 +1,53 @@
+@use 'assets/styles/helpers/all' as *;
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba($surface-elevation-4, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px 32px;
+}
+
+.modal {
+  position: relative;
+  background-color: $surface-elevation-1;
+  border-radius: 32px;
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1001;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+
+  svg {
+    width: 16px;
+    height: 16px;
+
+    path {
+      stroke: $neutral0;
+    }
+  }
+}
+
+.content {
+  padding: 32px;
+  overflow: auto;
+}
+
+.footer {
+  display: flex;
+  gap: 12px;
+  padding: 24px 32px 32px;
+}
+

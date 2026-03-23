@@ -19,7 +19,8 @@ export async function deriveEvmAddressFromMnemonic(
   if (!privateKeyBytes) throw new Error('No private key derived');
 
   //Преобразуем Uint8Array в hex-строку
-  const privateKeyHex = '0x' + Buffer.from(privateKeyBytes).toString('hex');
+  //const privateKeyHex = '0x' + Buffer.from(privateKeyBytes).toString('hex');
+  const privateKeyHex = `0x${Array.from(privateKeyBytes, (b) => b.toString(16).padStart(2, '0')).join('')}`;
 
   //Создаём кошелёк и возвращаем адрес
   const wallet = new ethers.Wallet(privateKeyHex);

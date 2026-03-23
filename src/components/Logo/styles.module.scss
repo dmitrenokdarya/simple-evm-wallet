@@ -1,0 +1,9 @@
+@use 'assets/styles/helpers/all' as *;
+
+.logo {
+  background: $surface-elevation-dark;
+
+  padding: 40px 0;
+  display: flex;
+  justify-content: center;
+}

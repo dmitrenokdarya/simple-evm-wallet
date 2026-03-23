@@ -1,8 +1,6 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import ArrowLeftIcon from '../../assets/images/icons/arrow-left.svg';
-import { ROUTES } from '../../constants/routes.constants';
 import styles from './styles.module.scss';
-import Header from '../../components/Header';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   createVault,
@@ -27,6 +25,8 @@ import InputWithController from '../../components/InputWithController';
 import Checkbox from '../../components/Checkbox';
 import Alert from '../../components/Alert';
 import Button from '../../components/Button';
+import Logo from '../../components/Logo';
+import Header from '../../components/Header';
 
 const CreateWallet = () => {
   const navigate = useNavigate();
@@ -154,14 +154,16 @@ const CreateWallet = () => {
 
   return (
     <>
-      <Header />
+      <Logo />
       <div className={styles.createWalletWrapper}>
-        <div className={styles.navigation}>
-          <button onClick={() => navigate(ROUTES.HOME_PAGE)} type="button">
-            <ArrowLeftIcon />
-          </button>
-          <p>Back up your wallet</p>
-        </div>
+        <Header
+          leftContent={
+            <button onClick={() => navigate('/')}>
+              <ArrowLeftIcon />
+            </button>
+          }
+          title={t('backUpYourWallet')}
+        />
 
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
           <div>

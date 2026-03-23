@@ -1,24 +1,24 @@
 @use 'assets/styles/helpers/all' as *;
 
 .createWalletWrapper {
-  .navigation {
-    display: flex;
-    align-items: center;
-    padding: 15px 20px;
-    border-bottom: 1px solid $neutral800;
-    position: relative;
+  // .navigation {
+  //   display: flex;
+  //   align-items: center;
+  //   padding: 15px 20px;
+  //   border-bottom: 1px solid $neutral800;
+  //   position: relative;
 
-    button {
-      margin-right: auto;
-    }
+  //   button {
+  //     margin-right: auto;
+  //   }
 
-    p {
-      @include subtitle-large($text-primary);
-      margin: 0;
-      flex: 1;
-      text-align: center;
-    }
-  }
+  //   p {
+  //     @include subtitle-large($text-primary);
+  //     margin: 0;
+  //     flex: 1;
+  //     text-align: center;
+  //   }
+  // }
 
   .form {
     padding: 24px 16px 8px;

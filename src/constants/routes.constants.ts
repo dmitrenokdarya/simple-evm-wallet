@@ -4,4 +4,5 @@ export const ROUTES = {
   IMPORT_WALLET: '/import-wallet',
   RECEIVE: '/receive',
   SEND: '/send',
+  SHOW_SEED: '/wallet/:id/seed',
 };

@@ -1,11 +1,11 @@
-import Header from '../../components/Header';
+import Logo from '../../components/Logo';
 import AuthButtons from './AuthButtons';
 import WalletBalance from './WalletBalance';
 
 const HomePage = () => {
   return (
     <div>
-      <Header />
+      <Logo />
       <WalletBalance />
       <AuthButtons />
     </div>
