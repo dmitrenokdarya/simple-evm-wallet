@@ -11,4 +11,5 @@ export const ROUTES = {
   IMPORT_WALLET_TYPE: '/import-wallet/type',
   IMPORT_WALLET_CUSTOMIZE: '/import-wallet/customize',
   RECOVERY_PHRASE: '/wallet/:id/recovery-phrase',
+  DELETE_WALLET: '/delete-wallet',
 };

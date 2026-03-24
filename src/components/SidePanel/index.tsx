@@ -5,6 +5,10 @@ import WalletNavIcon from 'assets/images/icons/nav/wallet.svg';
 import styles from './styles.module.scss';
 import { ROUTES } from '../../constants/routes.constants';
 import Header from '../Header';
+import { NavActionsMenu } from './NavActionsMenu';
+import { useMemo } from 'react';
+import DeleteWalletsIcon from 'assets/images/icons/nav/delete-wallets.svg';
+
 
 type Props = {
   isOpen: boolean;
@@ -19,6 +23,17 @@ export const SidePanel = ({ isOpen, onClose }: Props) => {
     onClose();
   };
 
+  const actionMenu = useMemo(
+    () => [
+      {
+        icon: <DeleteWalletsIcon />,
+        text: 'deleteWalletAndData',
+        link: ROUTES.DELETE_WALLET,
+      },
+    ],
+    [],
+  );
+
   return (
     <>
       <div
@@ -32,23 +47,21 @@ export const SidePanel = ({ isOpen, onClose }: Props) => {
         aria-modal="true"
       >
         <Header
-          leftContent={(
+          leftContent={
             <button type="button" onClick={onClose}>
               <CloseIcon />
             </button>
-          )}
+          }
         />
         <div className={styles.content}>
-          <button
-            onClick={handleManageWallets}
-            className={styles.action}
-          >
+          <button onClick={handleManageWallets} className={styles.action}>
             <WalletNavIcon />
             <div className={styles.actionTexts}>
               <div className={styles.title}>Manage Wallets</div>
               <p>Manage and add wallets, recovery phrase control</p>
             </div>
           </button>
+          <NavActionsMenu actions={actionMenu} onClose={onClose} />
         </div>
       </aside>
     </>

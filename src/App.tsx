@@ -14,6 +14,7 @@ import MyWallets from './containers/MyWallets';
 import ManageWallet from './containers/ManageWallet';
 import RevealSecretFlow from './containers/RevealSecretFlow';
 import CustomizeWallet from './containers/CustomizeWallet';
+import DeleteWalletPage from './containers/DeleteWallet';
 
 export const queryConfig: QueryClientConfig = {
   defaultOptions: {
@@ -37,6 +38,7 @@ function App() {
         <Route path={ROUTES.MY_WALLETS} element={<MyWallets />} />
         <Route path={ROUTES.MANAGE_WALLET} element={<ManageWallet />} />
         <Route path={ROUTES.RECOVERY_PHRASE} element={<RevealSecretFlow />} />
+        <Route path={ROUTES.DELETE_WALLET} element={<DeleteWalletPage />} />
         {/* <Route
           path={ROUTES.IMPORT_WALLET_TYPE}
           element={<SelectWalletType />}
