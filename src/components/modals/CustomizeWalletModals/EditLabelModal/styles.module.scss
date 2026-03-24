@@ -1,0 +1,17 @@
+@use 'assets/styles/helpers/all' as *;
+
+.modal {
+  height: auto;
+}
+
+.content {
+  padding: 0 16px;
+  display: flex;
+  gap: 32px;
+  flex-direction: column;
+
+  .subtitle {
+    @include body-2-small($text-secondary);
+    text-align: center;
+  }
+}

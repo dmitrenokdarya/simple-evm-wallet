@@ -10,6 +10,10 @@ import HomePage from './containers/HomePage';
 import { ROUTES } from './constants/routes.constants';
 import CreateWallet from './containers/CreateWallet';
 import { SeedBackupFlow } from './containers/SeedBackupFlow';
+import MyWallets from './containers/MyWallets';
+import ManageWallet from './containers/ManageWallet';
+import RevealSecretFlow from './containers/RevealSecretFlow';
+import CustomizeWallet from './containers/CustomizeWallet';
 
 export const queryConfig: QueryClientConfig = {
   defaultOptions: {
@@ -26,13 +30,23 @@ const queryClient = new QueryClient(queryConfig);
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-        <Routes>
-          <Route path={ROUTES.HOME_PAGE} element={<HomePage />} />
-          <Route path={ROUTES.CREATE_WALLET} element={<CreateWallet />} />
-          <Route path={ROUTES.SHOW_SEED} element={<SeedBackupFlow />} />
-          {/* <Route path={ROUTES.MY_WALLETS} element={<MyWallets />} /> */}
-          {/* <Route path={ROUTES.IMPORT_WALLET} element={<ImportWallet />} /> */}
-        </Routes>
+      <Routes>
+        <Route path={ROUTES.HOME_PAGE} element={<HomePage />} />
+        <Route path={ROUTES.CREATE_WALLET} element={<CreateWallet />} />
+        <Route path={ROUTES.SHOW_SEED} element={<SeedBackupFlow />} />
+        <Route path={ROUTES.MY_WALLETS} element={<MyWallets />} />
+        <Route path={ROUTES.MANAGE_WALLET} element={<ManageWallet />} />
+        <Route path={ROUTES.RECOVERY_PHRASE} element={<RevealSecretFlow />} />
+        {/* <Route
+          path={ROUTES.IMPORT_WALLET_TYPE}
+          element={<SelectWalletType />}
+        /> */}
+        <Route
+          path={ROUTES.IMPORT_WALLET_CUSTOMIZE}
+          element={<CustomizeWallet />}
+        />
+        {/* <Route path={ROUTES.IMPORT_WALLET} element={<ImportWallet />} /> */}
+      </Routes>
     </QueryClientProvider>
   );
 }

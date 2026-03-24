@@ -26,7 +26,7 @@ export async function ensureVaultUnlocked(
 //Восстановление ключа из сессии
 async function restoreSessionDEK(profileId: string): Promise<boolean> {
   if (dekKeys.has(profileId)) return true;
-  const rawB64 = await sessionGet<string>(sessionDekKey(profileId));
+  const rawB64 = await sessionGet(sessionDekKey(profileId));
 
   if (!rawB64) return false;
   try {
@@ -40,10 +40,13 @@ async function restoreSessionDEK(profileId: string): Promise<boolean> {
 }
 
 //Запрос данных из sessionStorage
-async function sessionGet<T>(key: string): Promise<T | null> {
-  const value = sessionStorage.getItem(key);
-  return value ? JSON.parse(value) : null;
+async function sessionGet(key: string): Promise<string | null> {
+  return sessionStorage.getItem(key);
 }
+// async function sessionGet<T>(key: string): Promise<T | null> {
+//   const value = sessionStorage.getItem(key);
+//   return value ? JSON.parse(value) : null;
+// }
 
 //Удаление данных из sessionStorage
 async function sessionRemove(key: string): Promise<void> {
@@ -147,4 +150,16 @@ async function getDEKOrRestoreOrThrow(profileId: string = 'guest'): Promise<Cryp
   const restoredKey = dekKeys.get(profileId);
   if (!restoredKey) throw new Error('Vault is locked');
   return restoredKey;
+}
+
+
+//Расшифрование сид-фразы ключом из памяти
+export async function decryptTextWithDEK(payload: AesGcmBox, profileId: string = 'guest'): Promise<string> {
+  const key = await getDEKOrRestoreOrThrow(profileId);
+  const iv = fromBase64(payload.ivB64);
+  const cipher = fromBase64(payload.cipherB64);
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
+  const plainBuf = await crypto.subtle.decrypt({ name: 'AES-GCM', iv }, key, cipher);
+  return new TextDecoder().decode(plainBuf);
 }

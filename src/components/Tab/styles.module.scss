@@ -1,0 +1,94 @@
+@use 'assets/styles/helpers/all' as *;
+
+$button-border-radius: 300px;
+$button-transition: all 0.3s;
+$loader-size: 20px;
+$content-gap: 4px;
+
+@mixin icon-styles($fill: true) {
+  svg {
+    path {
+      @if $fill {
+        fill: currentColor !important;
+      }
+      stroke: currentColor !important;
+    }
+  }
+}
+
+.button {
+  @include subtitle-medium();
+  border-radius: $button-border-radius;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  transition: $button-transition;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $content-gap;
+  overflow: hidden;
+  height: 40px;
+  padding: 12px 14px;
+  background: transparent;
+  color: $neutral100;
+
+  &.active {
+    color: $primary-default;
+
+    &:hover:not(:disabled) {
+      opacity: 0.9;
+    }
+
+    &:disabled {
+      color: $text-muted;
+    }
+
+    @include icon-styles($fill: false);
+  }
+
+  &[disabled] {
+    pointer-events: none;
+
+    @include icon-styles;
+  }
+}
+
+.primary {
+  &.active {
+    background: $surface-elevation-2;
+
+    &:disabled {
+      background: $neutral700;
+    }
+  }
+}
+
+.secondary {
+  padding-left: 0;
+  padding-right: 0;
+  background: transparent;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: transparent;
+    flex-shrink: 0;
+  }
+
+  &.active {
+    &::before {
+      background: $primary-default;
+    }
+
+    &:disabled {
+      &::before {
+        background: $text-muted;
+      }
+    }
+  }
+}
+
