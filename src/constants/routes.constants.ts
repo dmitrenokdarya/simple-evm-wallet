@@ -1,7 +1,6 @@
 export const ROUTES = {
   HOME_PAGE: '/',
   CREATE_WALLET: '/create-wallet',
-  IMPORT_WALLET: '/import-wallet',
   RECEIVE: '/receive',
   SEND: '/send',
   SHOW_SEED: '/wallet/:id/seed',
@@ -12,4 +11,5 @@ export const ROUTES = {
   IMPORT_WALLET_CUSTOMIZE: '/import-wallet/customize',
   RECOVERY_PHRASE: '/wallet/:id/recovery-phrase',
   DELETE_WALLET: '/delete-wallet',
+  SIGN_IN_IMPORT_WALLET: '/sign-in-import-wallet',
 };

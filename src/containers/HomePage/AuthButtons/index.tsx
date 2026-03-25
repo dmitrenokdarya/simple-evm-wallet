@@ -12,7 +12,7 @@ const AuthButtons = () => {
   };
 
   const handleImport = () => {
-    navigate(ROUTES.IMPORT_WALLET);
+    navigate(ROUTES.SIGN_IN_IMPORT_WALLET);
   };
 
   return (
