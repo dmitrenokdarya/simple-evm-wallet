@@ -1,0 +1,11 @@
+@use 'assets/styles/helpers/all' as *;
+
+.container {
+  .progress {
+    width: 100%;
+    height: 4px;
+    background: $success-default;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+}

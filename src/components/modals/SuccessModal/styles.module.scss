@@ -1,0 +1,61 @@
+@use 'assets/styles/helpers/all' as *;
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba($surface-elevation-4, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px 32px;
+}
+
+.modal {
+  background-color: $surface-elevation-1;
+  position: fixed;
+  border-radius: 32px;
+  width: 700px;
+  height: auto;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+
+  .content {
+    padding: 8px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: calc(100% - 42px);
+  }
+
+  .successImage {
+    height: 155px;
+    width: 155px;
+  }
+
+  .texts {
+    display: flex;
+    margin: 0 auto;
+    height: 440px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    h2 {
+      @include title-bold($neutral0);
+      text-align: center;
+      width: 300px;
+    }
+
+    p {
+      @include title-small($neutral100);
+      text-align: center;
+      width: 300px;
+    }
+  }
+}

@@ -1,0 +1,47 @@
+@use 'assets/styles/helpers/all' as *;
+
+.revealStep {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(600px - 44px);
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 500px;
+    padding: 0 36px;
+  }
+
+  .description {
+    @include subtitle-medium($text-primary);
+    margin-bottom: 40px;
+    text-align: center
+  }
+
+  .copyButton {
+    @include info-element($text-secondary);
+    gap: 4px;
+    display: flex;
+    padding: 10px;
+    border-radius: 1000px;
+    display: flex;
+    justify-content: center;
+    border: 1px solid $surface-light;
+    transition: all 0.3s;
+    margin-top: 10px;
+    &:hover {
+      background-color: $surface-light;
+    }
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 8px 16px;
+    position: relative;
+    // floating success alert is provided by components/Alert (tone: success, floating)
+  }
+}

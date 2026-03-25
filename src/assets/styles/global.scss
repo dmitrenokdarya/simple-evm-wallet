@@ -7,9 +7,10 @@ html,
 body,
 #__next {
   background: $surface-elevation-dark;
-  width: 800px;
-  height: auto;
+  width: 70vw;
+  height: 90vh;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 * {
@@ -43,7 +44,6 @@ body {
 div#root {
   height: 100%;
   background: $surface-elevation-1;
-  padding-bottom: 20px;
 }
 
 /* Chrome, Safari, Edge, Opera */

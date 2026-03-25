@@ -1,9 +1,27 @@
 @use 'assets/styles/helpers/all' as *;
 
 .header {
-  background: $surface-elevation-dark;
-
-  padding: 40px 0;
+  align-items: center;
+  min-height: 40px;
+  height: 40px;
+  padding: 0 18px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  background-color: $surface-elevation-1;
+  border-bottom: 1px solid $neutral800;
+
+  button, a {
+    display: flex;
+    align-items: center;
+  }
+
+  .leftContent, .rightContent {
+    width: 24px;
+  }
+
+  .titleContainer {
+    @include subtitle-large($text-primary);
+    justify-content: center;
+    display: flex;
+  }
 }

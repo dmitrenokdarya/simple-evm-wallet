@@ -1,0 +1,49 @@
+@use 'assets/styles/helpers/all' as *;
+
+.createWalletWrapper {
+  // .navigation {
+  //   display: flex;
+  //   align-items: center;
+  //   padding: 15px 20px;
+  //   border-bottom: 1px solid $neutral800;
+  //   position: relative;
+
+  //   button {
+  //     margin-right: auto;
+  //   }
+
+  //   p {
+  //     @include subtitle-large($text-primary);
+  //     margin: 0;
+  //     flex: 1;
+  //     text-align: center;
+  //   }
+  // }
+
+  .form {
+    padding: 24px 16px 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100% - 42px);
+
+    .startButton {
+      margin: 30px auto 20px;
+    }
+  }
+
+  .fields {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 16px;
+
+    .passwordField {
+      margin-bottom: 12px;
+
+      .good {
+        color: $success-default;
+      }
+    }
+  }
+}

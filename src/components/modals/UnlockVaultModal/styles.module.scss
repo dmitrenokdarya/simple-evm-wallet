@@ -1,0 +1,43 @@
+@use 'assets/styles/helpers/all' as *;
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba($surface-elevation-4, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px 32px;
+}
+
+.modal {
+  background-color: $surface-elevation-1;
+  position: fixed;
+  border-radius: 32px;
+  width: 700px;
+  height: 500px;
+  z-index: 9999;
+  overflow: hidden;
+
+  .wrap {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 42px);
+  }
+
+  .content {
+    padding: 0 16px;
+  }
+
+  .description {
+    @include title-small($neutral100);
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  .unlockButton {
+    margin-top: auto;
+  }
+}

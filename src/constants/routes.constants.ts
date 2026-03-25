@@ -1,0 +1,15 @@
+export const ROUTES = {
+  HOME_PAGE: '/',
+  CREATE_WALLET: '/create-wallet',
+  IMPORT_WALLET: '/import-wallet',
+  RECEIVE: '/receive',
+  SEND: '/send',
+  SHOW_SEED: '/wallet/:id/seed',
+  MY_WALLETS: '/my-wallets',
+  TOKEN_DETAILS: '/token-details/:chain/:contractAddress',
+  MANAGE_WALLET: '/manage-wallet/:id',
+  IMPORT_WALLET_TYPE: '/import-wallet/type',
+  IMPORT_WALLET_CUSTOMIZE: '/import-wallet/customize',
+  RECOVERY_PHRASE: '/wallet/:id/recovery-phrase',
+  DELETE_WALLET: '/delete-wallet',
+};

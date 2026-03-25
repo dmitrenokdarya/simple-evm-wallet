@@ -1,0 +1,46 @@
+@use 'assets/styles/helpers/all' as *;
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.textAreaWrap {
+  position: relative;
+  width: 100%;
+}
+
+.textArea {
+  background-color: $neutral800;
+  border-color: $neutral800;
+  height: 100px;
+}
+
+.toggleButton {
+  height: 40px;
+  width: 40px;
+
+  svg {
+    path {
+      stroke: $primary-default;
+    }
+  }
+
+  &.revealed {
+    svg {
+      path {
+        stroke: $neutral600;
+      }
+    }
+  }
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(6px);
+  z-index: 1;
+  border-radius: 12px;
+}

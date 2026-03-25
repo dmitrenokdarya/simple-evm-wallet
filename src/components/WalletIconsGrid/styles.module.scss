@@ -1,0 +1,65 @@
+@use 'assets/styles/helpers/all' as *;
+
+.iconsGrid {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0 4px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.iconBtn {
+  border: 1px solid $surface-elevation-2;
+  background: $surface-elevation-2;
+  border-radius: 77px;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &.iconBtnSelected {
+    border: 1px solid $primary-focus;
+  }
+}
+
+.selectedImgContainer {
+  border: 1px solid $primary-focus;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  border-radius: 77px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.title {
+  @include title-1($text-primary);
+  text-align: center;
+  margin-top: 16px;
+}
+
+.subtitle {
+  @include body-1-medium($neutral100);
+  text-align: center;
+  padding: 0 12px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
+
+.footer {
+  margin-top: 24px;
+}
+
+.inputWrapper {
+  margin-top: 16px;
+}

@@ -1,0 +1,74 @@
+@use 'assets/styles/helpers/all' as *;
+
+.introStep {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(600px - 44px);
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 36px 36px 36px;
+
+    .keyImg {
+      height: 140px;
+      width: 140px;
+      margin-bottom: 64px;
+    }
+
+    h2 {
+      @include title-1($neutral0);
+      text-align: center;
+      padding: 0 12px 12px;
+    }
+
+    .description {
+      @include info-element($neutral100);
+      text-align: center;
+      padding-bottom: 24px;
+
+      button {
+        color: $primary-default;
+      }
+    }
+
+    // alert styles moved to components/Alert/styles.module.scss
+  }
+
+  .actions {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 16px;
+  }
+}
+
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+
+  .image {
+    width: 160px;
+  }
+
+  h3 {
+    @include title-1($neutral0);
+  }
+
+  .info {
+    @include body-1-medium($text-primary);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer {
+    display: flex;
+    width: 100%;
+    gap: 8px;
+  }
+}

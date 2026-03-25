@@ -1,0 +1,54 @@
+@use 'assets/styles/helpers/all' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.tabs {
+  display: flex;
+  padding: 0 16px;
+  gap: 8px;
+  margin-top: 16px;
+  justify-content: center;
+}
+
+.revealStep {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    padding: 24px 32px;
+    flex: 1;
+  }
+
+  .description {
+    @include subtitle-medium($text-primary);
+    margin-bottom: 20px;
+  }
+
+  .input {
+    margin-bottom: 16px;
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    position: relative;
+    // floating success alert is provided by components/Alert (tone: success, floating)
+  }
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
