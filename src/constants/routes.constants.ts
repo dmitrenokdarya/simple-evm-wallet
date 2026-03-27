@@ -12,4 +12,5 @@ export const ROUTES = {
   RECOVERY_PHRASE: '/wallet/:id/recovery-phrase',
   DELETE_WALLET: '/delete-wallet',
   SIGN_IN_IMPORT_WALLET: '/sign-in-import-wallet',
+  SEND_CONFIRM: '/send/confirm',
 };

@@ -16,6 +16,7 @@ import RevealSecretFlow from './containers/RevealSecretFlow';
 import CustomizeWallet from './containers/CustomizeWallet';
 import DeleteWalletPage from './containers/DeleteWallet';
 import ImportWalletPage from './containers/ImportWalletPage';
+import SendTokens from './containers/SendTokens';
 
 export const queryConfig: QueryClientConfig = {
   defaultOptions: {
@@ -44,16 +45,12 @@ function App() {
           path={ROUTES.SIGN_IN_IMPORT_WALLET}
           element={<ImportWalletPage />}
         />
-
-        {/* <Route
-          path={ROUTES.IMPORT_WALLET_TYPE}
-          element={<SelectWalletType />}
-        /> */}
         <Route
           path={ROUTES.IMPORT_WALLET_CUSTOMIZE}
           element={<CustomizeWallet />}
         />
-        {/* <Route path={ROUTES.IMPORT_WALLET} element={<ImportWallet />} /> */}
+        {/* <Route path={ROUTES.RECEIVE} element={<ReceiveTokensList />} /> */}
+        <Route path={ROUTES.SEND} element={<SendTokens />} />
       </Routes>
     </QueryClientProvider>
   );

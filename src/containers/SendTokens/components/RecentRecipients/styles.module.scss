@@ -1,0 +1,72 @@
+@use 'assets/styles/helpers/all' as *;
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: $surface-light;
+  border-radius: 12px;
+  z-index: 100;
+  max-height: 240px;
+  overflow-y: auto;
+  margin-top: 4px;
+  padding: 8px;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+  height: 64px;
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+
+  &:hover {
+    background: $surface-elevation-2;
+  }
+}
+
+.avatarWrapper {
+  position: relative;
+  display: flex;
+}
+
+.blockchainLogo {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+  overflow: hidden;
+  gap: 2px;
+}
+
+.name {
+  @include subtitle-medium($text-primary);
+  width: 100%;
+  text-align: left;
+}
+
+.address {
+  @include body-2-small($text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}

@@ -41,7 +41,6 @@ export const ImportWalletPage = () => {
   const savedMnemonic = sessionStorage.getItem('recoverMnemonic');
   if (savedMnemonic) {
     setMnemonic(savedMnemonic);
-    sessionStorage.removeItem('recoverMnemonic');
   }
 }, [mnemonic]);
 

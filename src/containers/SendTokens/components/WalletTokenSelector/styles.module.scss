@@ -1,0 +1,187 @@
+@use 'assets/styles/helpers/all' as *;
+
+.walletTokenSelectors {
+  display: flex;
+  gap: 8px;
+}
+
+.selector {
+  background: $surface-elevation-2;
+  border-radius: 78px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  width: 100%;
+  text-align: left;
+  height: 48px;
+
+  .walletIconWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 0.5px solid $primary-alt;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  .icon {
+    display: flex;
+    align-items: center;
+    width: 32px;
+  }
+
+  .tokenIcon {
+    width: 32px;
+    height: 32px;
+
+    img,
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+
+    .name {
+      @include subtitle-medium($text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .balance {
+      @include subtext($primary-default);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+.tokenList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: $surface-elevation-1;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+}
+
+.overlayContent {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow-y: auto;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sectionTitle {
+  @include subtitle-medium($text-secondary);
+  padding: 0 12px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.walletItem {
+  background: $surface-elevation-2;
+  border: 1px solid transparent;
+  align-items: center;
+  padding: 16px;
+  border-radius: 12px;
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+
+  &:hover {
+    background: $surface-elevation-2;
+  }
+
+  .icon {
+    display: flex;
+    align-items: center;
+    svg {
+      width: 38px;
+      height: 38px;
+    }
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+
+    .name {
+      @include subtitle-medium($text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .address {
+      @include body-2-small($text-secondary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  &.active {
+    border: 1px solid $primary-default;
+  }
+}
+
+:global {
+  .active {
+    border: 1px solid $primary-default;
+  }
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.checkIcon {
+  margin-left: auto;
+  path {
+    stroke: $primary-default;
+  }
+}
