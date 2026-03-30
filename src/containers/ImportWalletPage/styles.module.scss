@@ -1,0 +1,39 @@
+@use 'assets/styles/helpers/all' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.content {
+  padding: 24px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+
+  h2 {
+    @include title-1($text-primary);
+    text-align: center;
+    padding: 0 24px;
+  }
+
+  .description {
+    @include info-element($text-secondary);
+    text-align: center;
+    margin-bottom: 12px;
+  }
+}
+
+.alertWrap {
+  margin-top: 8px;
+}
+
+.footer {
+  margin-top: 20px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

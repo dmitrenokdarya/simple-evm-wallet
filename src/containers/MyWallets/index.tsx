@@ -93,7 +93,7 @@ export const MyWallets = () => {
 
           <div className={styles.actions}>
             <Link
-              to={`${ROUTES.IMPORT_WALLET_TYPE}?flow=${WALLET_IMPORT_FLOWS.IMPORT_FROM_ACCOUNT}`}
+              to={`${ROUTES.SIGN_IN_IMPORT_WALLET}?flow=${WALLET_IMPORT_FLOWS.IMPORT_FROM_ACCOUNT}`}
             >
               <Button isFullWidth styleType="filledHighlighted">
                 {t('importWallet')}

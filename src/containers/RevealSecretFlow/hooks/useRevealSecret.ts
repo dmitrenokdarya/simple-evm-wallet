@@ -8,8 +8,8 @@ import { useModal } from '../../../context/modal.context';
 import { decryptTextWithDEK, ensureVaultUnlocked } from '../../../utils/vault';
 import { MODAL_NAME } from '../../../constants/modal.constants';
 import { ROUTES } from '../../../constants/routes.constants';
-import { deriveEvmPrivateKeyFromMnemonic } from '../../../utils/evm';
 import { encryptPrivateKeyToKeystore } from '../../../utils/keystore';
+import { deriveEvmPrivateKeyFromMnemonic } from '../../../utils/evm';
 
 export type RevealSecretType = 'mnemonic' | 'keystore' | 'privateKey';
 

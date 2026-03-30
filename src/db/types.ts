@@ -21,3 +21,18 @@ export interface WalletRecord {
   seedBackedUp: boolean;
   createdAt: number;
 }
+
+export interface WalletAddressRecord {
+  network: 'eth';
+  address: string;
+}
+
+export interface ContactRecord {
+  id: string; // uuid
+  profileId: string; // links to ProfileRecord.id
+  name: string;
+  avatar?: string; // base64 or blob url if stored locally, or just a placeholder
+  wallets: WalletAddressRecord[];
+  userId?: string;
+  createdAt: number;
+}

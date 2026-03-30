@@ -19,14 +19,8 @@ export const WALLET_ICONS = [
 export const getWalletIconById = (id?: string | null) => WALLET_ICONS.find((i) => i.id === id)?.img || <GrayIcon />;
 
 export const WALLET_IMPORT_FLOWS = {
-  CONNECT_EXTERNAL: 'connect-external',
-  CONNECT_AND_CREATE: 'connect-and-create',
-  RECOVER_ACCOUNT: 'recover-account',
   IMPORT_FROM_ACCOUNT: 'import-from-account',
 } as const;
 
 export type FlowType = typeof WALLET_IMPORT_FLOWS[keyof typeof WALLET_IMPORT_FLOWS];
 
-export const isConnectToCurrentProfile = (flow: string | null | undefined): boolean => (
-  flow === WALLET_IMPORT_FLOWS.CONNECT_EXTERNAL || flow === WALLET_IMPORT_FLOWS.IMPORT_FROM_ACCOUNT
-);

@@ -1,0 +1,34 @@
+@use 'assets/styles/helpers/all' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 16px;
+}
+
+.toInputWrapper {
+  position: relative;
+
+  .addressBookButton {
+    position: absolute;
+    top: -8px;
+    right: 0;
+  }
+}
+
+.addressBookOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $surface-elevation-1;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+
+  :global(.AddressBookContent_content__y1W-S) { // Fallback if direct import not used or styles scoped
+     height: calc(100vh - 64px); // Adjust based on header height
+  }
+}
